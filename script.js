@@ -1,4 +1,3 @@
-//your JS code here. If required.
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("loginForm");
     const usernameInput = document.getElementById("username");
@@ -18,8 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
     loginForm.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent form submission
 
-        const username = usernameInput.value;
-        const password = passwordInput.value;
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (!username || !password) {
+            alert("Please enter both username and password.");
+            return;
+        }
 
         alert(`Logged in as ${username}`);
 
